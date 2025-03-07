@@ -4,29 +4,26 @@ public class VendingMachine {
     private  int maxValue;
     private int value;
     private char code;
+    private Size size;
 
-    public VendingMachine(int value) {
-        if (value < 32 ||  value > 52) {
-            System.out.println("Valor invalido");
-        }else {
-            this.value = value;
-        }
+    public VendingMachine(Size size) {
+        this.size = size;
 
-        if (value <= 36) {
+        if (this.size == Size.SMALL) {
             this.description = "Pequeno";
             this.minValue=32;
             this.maxValue=36;
             this.code = 'S';
         }
 
-        if (value >=37 && value <= 44) {
+        if (this.size == Size.MEDIUM) {
             this.description = "Medio";
             this.minValue=37;
             this.maxValue=44;
             this.code = 'M';
         }
 
-        if (value >= 45 && value <= 52) {
+        if (this.size == Size.LARGE) {
             this.description = "Grande";
             this.minValue=45;
             this.maxValue=52;
